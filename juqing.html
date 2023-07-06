@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<title>历史苑</title>
+</head>
+<body>
+<div class="wrapin">
+  <!--头部-->
+  <footer>
+    <p><img src="images/logo.png" alt="Logo"></p>
+  </footer>
+  <div class="banner">
+    <div class="box-1">
+      <ul>
+        <li> <img src="images/banner_1.jpg"></li>
+        <li> <img src="images/banner_2.jpg"></li>
+        <li> <img src="images/banner_3.jpg"></li>
+        <li> <img src="images/banner_4.jpg"></li>
+      </ul>
+    </div>
+    <div class="box-2">
+      <ul></ul>
+    </div>
+    <div class="box-3"> 
+      <span class="prev"> &lt; </span> 
+      <span class="next"> &gt; </span> 
+    </div>
+  </div>
+  <header>
+    <ul class="nav clearfix">
+      <li><a href="index.html">课内历史</a></li>
+      <li><a href="tupian.html">历史碎片</a></li>
+      <li><a href="juqing.html">趣味历史</a></li>
+      <li><a href="jiangjie.html">历史讲解</a></li>
+      <li><a href="lianxi.html">联系我们</a></li>
+    </ul>
+  </header>
+  <script>
+    const images = document.querySelectorAll('.banner .box-1 li');
+    const dots = document.querySelector('.banner .box-2 ul');
+    let currentIndex = 0;
+
+    // 添加小圆点
+    for (let i = 0; i < images.length; i++) {
+      const dot = document.createElement('li');
+      if (i === 0) {
+        dot.classList.add('active');
+      }
+      dots.appendChild(dot);
+    }
+
+    // 自动轮播
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }, 3000);
+
+    // 显示图片和对应的小圆点
+    function showImage(index) {
+      currentIndex = index; // 更新currentIndex的值
+      images.forEach((image, i) => {
+        if (i === index) {
+          image.style.display = 'block';
+          dots.children[i].classList.add('active');
+        } else {
+          image.style.display = 'none';
+          dots.children[i].classList.remove('active');
+        }
+      });
+    }
+
+    // 点击小圆点切换图片
+    dots.addEventListener('click', (event) => {
+      if (event.target.tagName === 'LI') {
+        const index = Array.from(dots.children).indexOf(event.target);
+        currentIndex = index; // 更新currentIndex的值
+        showImage(currentIndex);
+      }
+    });
+
+    // 点击左右箭头切换图片
+    document.querySelector('.banner .prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    document.querySelector('.banner .next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+  </script>  
+  
+  <!--内容-->
+  <div class="con">
+    <div class="title">
+      <h2>趣味历史</h2>
+    </div>
+    <div class="pinglun">
+      <div class="text">
+        <img src="images/blackboard.jpg" id="img"/>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课标要求：认识列强侵华对中国社会的影响，概述晚清时期中国人民反抗外来侵略的斗争事迹，理解其性质和意义；认识社会各阶级为挽救危局所做的努力及存在的局限性。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据对课标的理解，可以分为两个层次。第一层次是讲述晚清时期列强对中国的侵略，以及对中国造成了一系列严重的社会影响。它强加给中国一个不平等条约体系，使中国的独立主权受到严重危害，中国社会沦为半殖民地半封建社会。如何让学生切身感受侵略之痛，以及侵略后民族的满目疮痍，需要创设真实的历史情境加以引导。</p> 
+        <br> 
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教学目标：基于对教材和学情的分析，本课通过剧本杀的游戏方式，体验晚清不同阶级、不同人物救亡图存的选择、主张和行为，理解他们所代表的的阶级利益，所承载的阶级局限，体会历史中“时代与人”的价值。</p>
+        <br>
+        <img id="specialImage" src="images/name.jpg" alt="图像">
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作为真实的历史人物，他们在这一历史时期都发挥了非常重要的作用，对戊戌变法和和团运动的走向产生了极大的影响；另一方面他们代表着不同的阶级，有着不同的利益诉求，他们的行事体现着不同阶级的特点和局限。</p>
+        <br>
+        <img id="specialImage2" src="images/choose.jpg" alt="图像">
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你阅读剧本并完成任务。</p>
+        <br>
+        <img src="images/jvben.jpg" id="img"/>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剧情开始：喋血菜市口！1898年9月28日，谭嗣同、康广仁、刘光第、林旭、杨锐、杨深秀被处死于北京菜市口，史称“戊戌六君子”。</p>
+        <br>
+        <img src="images/start.gif" id="img"/>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面请阅读线索，完成你的任务。</p>
+        <br>
+        <img id="specialImage3" src="images/gonggong.jpg" alt="图像">
+        <br>
+        <img id="specialImage4" src="images/yincang.jpg" alt="图像">
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请你结合线索，完成最后推凶环节。</p>
+        <br>
+        <img id="specialImage5" src="images/killer.jpg" alt="图像">
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其一，通过公共线索一李鸿章的观点，我们可以看出变法的动力不在于内而在于外：戊戌变法是为了应对民族危机不断加深的时局而提出来的。通过李提摩太的隐藏线索——希望能作为外国顾问渗透清政府权力核心的私心也能说明这一问题。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其二，通过慈禧太后和张之洞的线索，我们可以看出守旧势力对于变法的严格控制，变什么，如何变，他们有很强的话语权，反之以康梁为代表的维新派只能借孔子托古改制，可见其有限的政治影响力，变法的背后是两股政治力量的角逐。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其三，公共线索二中呈现了变法的具体内容，政治、经济、文化、军事面面俱到，可在康有为的隐藏线索中，他却在100多天里要颁布落实40多道诏令，可见变法的方法并不科学。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至此，“我们从时势、力量、方法三个角度分析了变法的失败。无论是李提摩太渗透势力的私心、康有为操之过急的方式；抑或是张之洞“中体西用”的藩篱、慈禧大后因循守旧的禁钢，还是袁世凯仓皇告密的激化，这场运动都将以失败告终。</p>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总结：我们面对的敌人不仅仅是西方的坚船利炮，更是若干成熟的民族国家，他们最大的优势就是能够将国家各个方面整合成一个综合能力。从这个角度来讲，我们的救亡图存就不应该仅仅是某个人、某个阶级的努力，而要把各种族、各阶级的力量整合起来，变成一个思想和利益的共同体。那么，如何构建一个现代意义上的民族国家，找到真正挽救民族危亡的出路？这道历史命题我们未完待续……</p>
+        <br>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="prev-button">更多内容</button>
+      <button class="next-button">敬请期待</button>
+    </div>
+  </div>
+</div>
+<script>
+// 获取图像元素
+const image = document.getElementById('specialImage');
+const image2 = document.getElementById('specialImage2');
+const image3 = document.getElementById('specialImage3');
+const image4 = document.getElementById('specialImage4');
+const image5 = document.getElementById('specialImage5');
+// 定义图像路径数组
+const imagePaths = [ 'images/name_introduce.jpg','images/name.jpg'];
+const imagePaths2 = [ 'images/cx.jpg','images/choose.jpg'];
+const imagePaths3 = [ 'images/gonggong_show.jpg','images/gonggong.jpg'];
+const imagePaths4 = [ 'images/yincang_show.jpg','images/yincang.jpg'];
+const imagePaths5 = [ 'images/truth.jpg','images/killer.jpg'];
+// 定义图像切换函数
+(function () {
+  let currentIndex = 0; // currentIndex作为私有变量，仅在闭包内部可见
+
+  function toggleImage() {
+    currentIndex = (currentIndex + 1) % imagePaths.length;
+    image.src = imagePaths[currentIndex];
+  }
+
+  // 初始化图像显示
+  toggleImage();
+
+  // 添加点击事件监听器
+  image.addEventListener('click', toggleImage);
+})();
+
+(function () {
+  let currentIndex = 0; // currentIndex作为私有变量，仅在闭包内部可见
+
+  function toggleImage() {
+    currentIndex = (currentIndex + 1) % imagePaths2.length;
+    image2.src = imagePaths2[currentIndex];
+  }
+
+  // 初始化图像显示
+  toggleImage();
+
+  // 添加点击事件监听器
+  image2.addEventListener('click', toggleImage);
+})();
+(function () {
+  let currentIndex = 0; // currentIndex作为私有变量，仅在闭包内部可见
+
+  function toggleImage() {
+    currentIndex = (currentIndex + 1) % imagePaths3.length;
+    image3.src = imagePaths3[currentIndex];
+  }
+
+  // 初始化图像显示
+  toggleImage();
+
+  // 添加点击事件监听器
+  image3.addEventListener('click', toggleImage);
+})();
+(function () {
+  let currentIndex = 0; // currentIndex作为私有变量，仅在闭包内部可见
+
+  function toggleImage() {
+    currentIndex = (currentIndex + 1) % imagePaths4.length;
+    image4.src = imagePaths4[currentIndex];
+  }
+
+  // 初始化图像显示
+  toggleImage();
+
+  // 添加点击事件监听器
+  image4.addEventListener('click', toggleImage);
+})();
+(function () {
+  let currentIndex = 0; // currentIndex作为私有变量，仅在闭包内部可见
+
+  function toggleImage() {
+    currentIndex = (currentIndex + 1) % imagePaths5.length;
+    image5.src = imagePaths5[currentIndex];
+  }
+
+  // 初始化图像显示
+  toggleImage();
+
+  // 添加点击事件监听器
+  image5.addEventListener('click', toggleImage);
+})();
+</script>
+    <!--底部-->
+    <footer>
+      <p><img src="images/logo.png" alt="Logo"></p>
+    </footer>
+</body>
+</html>
+

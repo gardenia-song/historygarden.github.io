@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<title>历史苑</title>
+</head>
+<body>
+<div class="wrapin">
+  <!--头部-->
+  <footer>
+    <p><img src="images/logo.png" alt="Logo"></p>
+  </footer>
+  <div class="banner">
+    <div class="box-1">
+      <ul>
+        <li> <img src="images/banner_1.jpg"></li>
+        <li> <img src="images/banner_2.jpg"></li>
+        <li> <img src="images/banner_3.jpg"></li>
+        <li> <img src="images/banner_4.jpg"></li>
+      </ul>
+    </div>
+    <div class="box-2">
+      <ul></ul>
+    </div>
+    <div class="box-3"> 
+      <span class="prev"> &lt; </span> 
+      <span class="next"> &gt; </span> 
+    </div>
+  </div>
+  <script>
+    const images = document.querySelectorAll('.banner .box-1 li');
+    const dots = document.querySelector('.banner .box-2 ul');
+    let currentIndex = 0;
+  
+    // 添加小圆点
+    for (let i = 0; i < images.length; i++) {
+      const dot = document.createElement('li');
+      if (i === 0) {
+        dot.classList.add('active');
+      }
+      dots.appendChild(dot);
+    }
+  
+    // 自动轮播
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }, 3000);
+  
+    // 显示图片和对应的小圆点
+    function showImage(index) {
+      images.forEach((image, i) => {
+        if (i === index) {
+          image.style.display = 'block';
+          dots.children[i].classList.add('active');
+        } else {
+          image.style.display = 'none';
+          dots.children[i].classList.remove('active');
+        }
+      });
+    }
+  
+    // 点击小圆点切换图片
+    dots.addEventListener('click', (event) => {
+      if (event.target.tagName === 'LI') {
+        const index = Array.from(dots.children).indexOf(event.target);
+        currentIndex = index;
+        showImage(currentIndex);
+      }
+    });
+  
+    // 点击左右箭头切换图片
+    document.querySelector('.banner .prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+  
+    document.querySelector('.banner .next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+  </script>  
+  <header>
+    <ul class="nav clearfix">
+      <li><a href="index.html">课内历史</a></li>
+      <li><a href="tupian.html">历史碎片</a></li>
+      <li><a href="juqing.html">趣味历史</a></li>
+      <li><a href="jiangjie.html">历史讲解</a></li>
+      <li><a href="lianxi.html">联系我们</a></li>
+    </ul>
+  </header>
+  <!--内容-->
+  <div class="con">
+    <div class="top clearfix">
+      <div class="text">
+        <h2>课内历史</h2>
+        <br>
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历史是中小学教育的必修科目之一。学习历史可以：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.拓宽视野：历史课程涵盖了丰富多彩的历史事件、人物和文化，可以拓宽视野，了解世界的多样性和复杂性。
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.培养思考能力：历史学科是一门需要思辨性的学科，在学习历史的过程中需要通过分析和比较历史事件、人物和文化，从而形成自己的观点并正确表达出来。
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.传承文化：历史是文化的载体，通过学习历史可以了解祖先们的智慧和创造，更好地传承和弘扬优秀的人文精神。
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.培养国家意识：历史是国家意识形态的一部分，学习历史可以加深学生对祖国的认识和热爱，提高他们的国家荣誉感和责任意识。</P>
+      </div>
+      <div class="pic"> <img src="images/historyBook.gif"/> </div>
+    </div>
+  <!--文章页-->
+    <div class="article">
+      <div class="title">
+        <h2></h2>
+      </div>
+      <div class="content"></div>
+      <br>
+      <div class="nav-buttons">
+        <button class="prev-button">上一篇</button>
+        <button class="next-button">下一篇</button>
+      </div>
+      <br>
+    </div>
+    <script>
+    const articles = [
+      {
+        title: "中外历史纲要（上）·第一课：中华文明的起源与早期国家",
+        content:
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课标要求：<br>\
+          通过了解石器时代境内有代表性的文化遗存，认识它们与中华文明起源以及私有制、阶级和国家产生的关系；通过甲骨文、青铜铭文及其他文献记载，了解私有制、阶级和早期国家的起源特征。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重难点：<br>\
+          重点：石器时代境内有代表性的文化遗存与中华文明起源的关系；早期国家的起源及特征。<br>\
+          难点：早期国家的起源及特征。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教材分析:<br>\
+          本课共三个子目。<br>\
+          “石器时代的古人类和文化遗存”一目介绍了石器时代，尤其是新石器时代晚期境内有代表性的文化遗存，向学生展示了史前时代中华文明取得的辉煌成就，体现了中华文明起源多元一体、中原核心方向发展的特点。<br>\
+          “从部落到国家”和“商和西周”两目，借由古史传说和青铜铭文及其他文献记载，描述了私有制、阶级和早期国家的起源及其特征。<br>\
+          本课与考古学关联甚密，可在考古史料探究中渗透史料实证的学科核心素养，帮助学生形成严谨治学的态度。<br>\
+          <img src='images/biji1.jpg' alt='图片1描述' class='biji'>"
+      },
+      {
+        title: "中外历史纲要（上）·第二课：诸侯纷争与变法运动",
+        content:
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课标要求：<br>\
+          通过了解春秋战国时期的经济发展和政治变动，理解战国时期变法运动的必然性；了解老子、孔子学说；通过孟子、荀子、庄子等了解“百家争鸣”的局面及其意义。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重难点：<br>\
+          重点：社会变化与变法运动产生的原因，“百家争鸣”局面的形成及其意义。<br>\
+          难点：“百家争鸣”局面形成与社会变革之间的关系。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教材分析:<br>\
+          本课共包含四个子目，分别是列国纷争与华夏认同、经济发展与变法运动、孔子和老子、百家争鸣，涉及的历史概念、历史事件较多，且历史事件之间的联系比较复杂。<br>\
+          具体来看，第一个子目重点论述了东周时期王室衰微和诸侯争霸，从“春秋五霸”到“战国七雄”的历史变迁过程以及华夏观念的形成；第二个子目主要讲述了春秋战国时期政治、社会变动的主要潮流，并以商鞅变法为代表介绍了其主要内容与影响；第三个子目重点介绍了对我国历史深远的两大流派儒家和道家；第四个子目则介绍了社会变革在意识形态上的反映以及“百家争鸣”局面的形成。<br>\
+          学习时注意认识到社会存在决定社会意识，即春秋战国时期的经济发展和政治大变革，在思想领域表现为“百家争鸣”。<br>\
+          <img src='images/biji2.jpg' alt='图片2描述'class='biji'>"
+      },
+      {
+        title: "中外历史纲要（上）·第四课：西汉与东汉——统一多民族封建国家的巩固",
+        content:
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课标要求：<br>\
+          通过了解汉朝削藩、开疆拓土、尊崇儒术等举措，认识统一多民族封建国家的建立及巩固在中国历史上的意义；通过了解汉时期的社会矛盾和农民起义，认识两汉衰亡的原因。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重难点：<br>\
+          重点：文景之治与西汉的强盛。<br>\
+          难点：认识统一多民族封建国家的巩固及其在中国历史上的意义。<br>\
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教材分析:<br>\
+          汉承秦制，有所损益。汉朝在长达四百余年的统治时期内，对大一统国家进行了全面的构建与巩固，为后世奠定了重要基础。<br>\
+          本课覆盖西汉和东汉的重要史实，时间跨度大，内容丰富。本课共有四个子目，教学中需要根据课标有所侧重与取舍。前三个子目存在着诸多因果关系需要梳理。<br>\
+          根据课标的要求，文化内容在整课中相对独立，且内容较简单，可作为课外阅读子目。从历史时期看，西汉可侧重于汉武帝的“伟业”，东汉的着力点则是社会矛盾与流民之乱。<br>\
+          <img src='images/biji3.jpg' alt='图片3描述'class='biji'>"
+      },
+      // 可以添加更多的文章
+    ];
+    
+    const articleContainer = document.querySelector(".article");
+    const titleElement = articleContainer.querySelector(".title h2");
+    const contentElement = articleContainer.querySelector(".content");
+    const prevButton = articleContainer.querySelector(".prev-button");
+    const nextButton = articleContainer.querySelector(".next-button");
+    
+    let currentArticleIndex = 0;
+    
+    function renderArticle(article) {
+      titleElement.textContent = article.title;
+      contentElement.innerHTML = article.content;
+    }
+    
+    function switchToNextArticle() {
+      currentArticleIndex++;
+      if (currentArticleIndex >= articles.length) {
+        currentArticleIndex = 0;
+      }
+      renderArticle(articles[currentArticleIndex]);
+    }
+    function switchToPrevArticle() {
+      currentArticleIndex--;
+      if (currentArticleIndex < 0) {
+        currentArticleIndex = articles.length - 1;
+      }
+      renderArticle(articles[currentArticleIndex]);
+    }
+    
+    renderArticle(articles[currentArticleIndex]);
+    prevButton.addEventListener("click", switchToPrevArticle);
+    nextButton.addEventListener("click", switchToNextArticle);
+    </script>
+</div>
+    <!--底部-->
+    <footer>
+      <p><img src="images/logo.png"></p>
+    </footer>
+</body>
+</html>
